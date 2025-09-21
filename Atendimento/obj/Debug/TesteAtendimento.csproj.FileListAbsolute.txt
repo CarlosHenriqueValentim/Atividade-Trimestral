@@ -1,0 +1,7 @@
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\obj\Debug\TesteAtendimento.csproj.AssemblyReference.cache
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\obj\Debug\TesteAtendimento.csproj.CoreCompileInputs.cache
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\bin\Debug\TesteAtendimento.exe.config
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\bin\Debug\TesteAtendimento.exe
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\bin\Debug\TesteAtendimento.pdb
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\obj\Debug\TesteAtendimento.exe
+C:\Users\Rick\source\repos\TesteAtendimento\TesteAtendimento\obj\Debug\TesteAtendimento.pdb
