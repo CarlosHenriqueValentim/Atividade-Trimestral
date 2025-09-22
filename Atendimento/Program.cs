@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,129 +11,92 @@ namespace Atendimento15Pacientes
         {
             string escolher;
             int tamanho = 15;
-            int auxilio = 0;
+            int auxiliar = 0;
             Pacientes[] Paciente = new Pacientes[tamanho];
-
-            
+            while (true) 
             {
-                Console.WriteLine("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q");
-                Console.Write("\nEscolha: ");
-                escolher = Console.ReadLine();
-
-                switch (escolher)
-
+                    Console.WriteLine("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q");
+                    Console.Write("\nEscolha: ");
+                    escolher = Console.ReadLine();                              
+                    switch (escolher)
                 {
                     case "1":
-
-                        if (auxilio < tamanho)
-
+                        if (auxiliar < tamanho)
                         {
-                            Pacientes Novo = new Pacientes();
-                            Novo.CadastrarPaciente();
-                            Novo.numpaciente = auxilio + 1;
-
-                            if (Novo.preferencial >= 2)
-
+                            Pacientes NovoPaciente = new Pacientes();
+                            NovoPaciente.CadastrarPaciente();
+                            NovoPaciente.numeroPaciente = auxiliar + 1;
+                            if (NovoPaciente.preferencial >= 2)
                             {
-                                for (int i = auxilio; i > 0; i--)
+                                for (int i = auxiliar; i > 0; i--)
                                 {
                                     Paciente[i] = Paciente[i - 1];
                                 }
-                                Paciente[0] = Novo;
+                                Paciente[0] = NovoPaciente;
                             }
-
                             else
-
                             {
-                                Paciente[auxilio] = Novo;
+                                Paciente[auxiliar] = NovoPaciente;
                             }
-
-                            auxilio++;
-                            Console.WriteLine("Paciente cadastrado com sucesso!");
+                            auxiliar++;
+                            Console.WriteLine("\nPaciente cadastrado com sucesso!\n");
                         }
-
                         else
-
                         {
-                            Console.WriteLine("Fila cheia.");
-                        }                        
+                            Console.WriteLine("\nFila cheia.\n");
+                        }
                         break;
-
                     case "2":
                         Console.WriteLine("\nLista de Pacientes");
-                        if (auxilio == 0)
-
+                        if (auxiliar == 0)
                         {
-                            Console.WriteLine("Nenhum paciente cadastrado");
+                            Console.WriteLine("\nNenhum paciente cadastrado\n");
                         }
                         else
-
                         {
-                            for (int i = 0; i < auxilio; i++)
-
+                            for (int i = 0; i < auxiliar; i++)
                             {
-                                Console.Write($"{i + 1} - ");
+                                Console.Write(i + 1 + " - ");
                                 Paciente[i].MostrarDados();
                             }
                         }
-
                         break;
-
                     case "3":
-
-                        if (auxilio == 0)
-
+                        if (auxiliar == 0)
                         {
-                            Console.WriteLine("Nenhum paciente na fila.");
+                            Console.WriteLine("\nNenhum paciente na fila.\n");
                         }
-
                         else
-
                         {
-                            Console.WriteLine($"Atendendo {Paciente[0].nome}");
-
-                            for (int i = 0; i < auxilio - 1; i++)
-
+                            Console.WriteLine("\nAtendendo" + Paciente[0].nome);
+                            for (int i = 0; i < auxiliar - 1; i++)
                             {
                                 Paciente[i] = Paciente[i + 1];
                             }
-
-                            Paciente[auxilio - 1] = null; auxilio--;
+                            Paciente[auxiliar - 1] = null; auxiliar--;
                         }
-
                         break;
-
                     case "4":
-
-                        Console.Write("Digite o número do paciente para alterar:");
+                        Console.Write("\nDigite o número do paciente para alterar:\n");
                         int posição = int.Parse(Console.ReadLine()) - 1;
-                        
-                        if (posição < auxilio) 
-
+                        if (posição < auxiliar)
                         {
                             Paciente[posição].CadastrarPaciente();
-                            Console.WriteLine("Dados alterados com sucesso");
+                            Console.WriteLine("\nDados alterados com sucesso\n");
                         }
-
                         else
-
                         {
-                            Console.WriteLine("Paciente não encontrado.");
+                            Console.WriteLine("\nPaciente não encontrado\n");
                         }
-
                         break;
-
                     case "Q":
-
-                        break;
-
+                        Console.WriteLine("\nDepuração Finalizada\n");
+                        return;                       
                     default:
-
-                        Console.WriteLine("Opção incorreta.");
-
+                        Console.WriteLine("\nOpção incorreta, Depuração Finalizada\n");
                         break;
                 }
-            } 
+            }
         }
     }
 }
