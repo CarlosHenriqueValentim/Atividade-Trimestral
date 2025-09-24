@@ -21,14 +21,13 @@ namespace Atendimento15Pacientes
             Console.Write("Digite a Idade do Paciente: ");
             idade = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nDigite o nivel Preferencial do Paciente\n0 - Baixo\n1- Médio\n2 - Alto\n3 - Muito Alto\n");
+            Console.WriteLine("\nDigite o nivel Preferencial do Paciente\n1 - Baixo\n2- Médio\n3 - Alto\n");
             preferencial = int.Parse(Console.ReadLine());
         }
 
         public void MostrarDados()
         {
-            string[] niveis = { "Baixo", "Médio", "Alto", "Muito Alto" };
-            Console.WriteLine("{0}, {1} anos, Preferência: {2}", nome, idade, preferencial);
+            Console.WriteLine("{0}, {1} anos, Nivel Preferêncial: {2}", nome, idade, preferencial);
         }     
         public void Atendimento()
         {
