@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atendimento15Pacientes
 {
-    internal class Pacientes
+    class Pacientes
     {
         public string nome;
         public int numpaciente;
