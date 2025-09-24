@@ -13,19 +13,19 @@ namespace Atendimento15Pacientes
             int tamanho = 15;
             int auxiliar = 0;
             Pacientes[] Paciente = new Pacientes[tamanho];
-            while (true) 
+            while (true)
             {
-                    Console.WriteLine("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q");
-                    Console.Write("\nEscolha: ");
-                    escolher = Console.ReadLine();                              
-                    switch (escolher)
+                Console.WriteLine("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q");
+                Console.Write("\nEscolha: ");
+                escolher = Console.ReadLine();
+                switch (escolher)
                 {
                     case "1":
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
                             NovoPaciente.CadastrarPaciente();
-                            NovoPaciente.numeroPaciente = auxiliar + 1;
+                            NovoPaciente.numeropaciente = auxiliar + 1;
                             if (NovoPaciente.preferencial >= 2)
                             {
                                 for (int i = auxiliar; i > 0; i--)
@@ -91,9 +91,12 @@ namespace Atendimento15Pacientes
                         break;
                     case "Q":
                         Console.WriteLine("\nDepuração Finalizada\n");
-                        return;                       
+                        return;
+                    case "q":
+                        Console.WriteLine("\nDepuração Finalizada\n");
+                        return;
                     default:
-                        Console.WriteLine("\nOpção incorreta, Depuração Finalizada\n");
+                        Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
                         break;
                 }
             }
