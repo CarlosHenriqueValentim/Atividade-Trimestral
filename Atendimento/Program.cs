@@ -88,13 +88,13 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nPaciente não encontrado\n");
                         }
                         break;
-                    case "Q":
+                    case "Q": // Sair com Q maiusculo 
                         Console.WriteLine("\nDepuração Finalizada\n");
                         return;
-                    case "q":
+                    case "q": // Sair com q minusculo
                         Console.WriteLine("\nDepuração Finalizada\n");
                         return;
-                    default:
+                    default: // digitar qualquer tecla exceto 1,2,3,4,Q,q
                         Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
                         break;
                 }
