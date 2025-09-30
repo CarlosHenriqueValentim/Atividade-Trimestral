@@ -19,7 +19,7 @@ namespace Atendimento15Pacientes
                 escolher = Console.ReadLine();
                 switch (escolher)
                 {
-                    case "1": // Opcão Cadastrar Paciente
+                    case "1": // Cadastrar Paciente
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
