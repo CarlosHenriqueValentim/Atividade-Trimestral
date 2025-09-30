@@ -19,7 +19,7 @@ namespace Atendimento15Pacientes
                 escolher = Console.ReadLine();
                 switch (escolher)
                 {
-                    case "1":
+                    case "1": // Opcão Cadastrar Paciente
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
@@ -60,7 +60,7 @@ namespace Atendimento15Pacientes
                             }
                         }
                         break;
-                    case "3":
+                    case "3": // Atender o Paciente do Array
                         if (auxiliar == 0)
                         {
                             Console.WriteLine("\nNenhum paciente na fila.\n");
@@ -75,7 +75,7 @@ namespace Atendimento15Pacientes
                             TamanhodoPaciente[auxiliar - 1] = null; auxiliar--;
                         }
                         break;
-                    case "4":
+                    case "4": // Aterar os Dados do Paciente de acordo da Posição dele pelo indice 
                         Console.Write("\nDigite o número do paciente para alterar:\n");
                         int posição = int.Parse(Console.ReadLine()) - 1;
                         if (posição < auxiliar)
