@@ -12,7 +12,7 @@ namespace Atendimento15Pacientes
             string escolher;
             int tamanho = 15;
             int auxiliar = 0;
-            Pacientes[] TamanhodoPaciente = new Pacientes[tamanho];
+            Pacientes[] Indice = new Pacientes[tamanho];
             while (true) // Loop Infinito do Menu 
             {
                 Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha: ");
@@ -29,13 +29,13 @@ namespace Atendimento15Pacientes
                             {
                                 for (int i = auxiliar; i > 0; i--)
                                 {
-                                    TamanhodoPaciente[i] = TamanhodoPaciente[i - 1];
+                                    Indice[i] = Indice[i - 1];
                                 }
-                                TamanhodoPaciente[0] = NovoPaciente;
+                                Indice[0] = NovoPaciente;
                             }
                             else
                             {
-                                TamanhodoPaciente[auxiliar] = NovoPaciente;
+                                Indice[auxiliar] = NovoPaciente;
                             }
                             auxiliar++;
                             Console.WriteLine("\nPaciente cadastrado!\n");
@@ -56,7 +56,7 @@ namespace Atendimento15Pacientes
                             for (int i = 0; i < auxiliar; i++)
                             {
                                 Console.Write(i + 1 + " - ");
-                                TamanhodoPaciente[i].MostrarDados();
+                                Indice[i].MostrarDados();
                             }
                         }
                         break;
@@ -67,12 +67,12 @@ namespace Atendimento15Pacientes
                         }
                         else
                         {
-                            Console.WriteLine("\nAtendendo" + TamanhodoPaciente[0].nome);
+                            Console.WriteLine("\nAtendendo" + Indice[0].nome);
                             for (int i = 0; i < auxiliar - 1; i++)
                             {
-                                TamanhodoPaciente[i] = TamanhodoPaciente[i + 1];
+                                Indice[i] = Indice[i + 1];
                             }
-                            TamanhodoPaciente[auxiliar - 1] = null; auxiliar--;
+                            Indice[auxiliar - 1] = null; auxiliar--;
                         }
                         break;
                     case "4": // Aterar os Dados do Paciente de acordo da Posição dele pelo indice 
@@ -80,7 +80,7 @@ namespace Atendimento15Pacientes
                         int posição = int.Parse(Console.ReadLine()) - 1;
                         if (posição < auxiliar)
                         {
-                            TamanhodoPaciente[posição].CadastrarPaciente();
+                            Indice[posição].CadastrarPaciente();
                             Console.WriteLine("\nDados alterados com sucesso\n");
                         }
                         else
