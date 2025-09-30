@@ -38,7 +38,7 @@ namespace Atendimento15Pacientes
                                 TamanhodoPaciente[auxiliar] = NovoPaciente;
                             }
                             auxiliar++;
-                            Console.WriteLine("\nPaciente cadastrado com sucesso!\n");
+                            Console.WriteLine("\nPaciente cadastrado!\n");
                         }
                         else
                         {
