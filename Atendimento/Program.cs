@@ -14,9 +14,8 @@ namespace Atendimento15Pacientes
             int auxiliar = 0;
             Pacientes[] Paciente = new Pacientes[tamanho];
             while (true)
-            {
-                Console.WriteLine("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q");
-                Console.Write("\nEscolha: ");
+            { 
+                Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha: ");
                 escolher = Console.ReadLine();
                 switch (escolher)
                 {
