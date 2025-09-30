@@ -75,7 +75,7 @@ namespace Atendimento15Pacientes
                             Indice[auxiliar - 1] = null; auxiliar--;
                         }
                         break;
-                    case "4": // Aterar os Dados do Paciente de acordo da Posição dele pelo indice 
+                    case "4": // Alterar os Dados do Paciente de acordo da Posição dele pelo indice 
                         Console.Write("\nDigite o número do paciente para alterar:\n");
                         int posição = int.Parse(Console.ReadLine()) - 1;
                         if (posição < auxiliar)
