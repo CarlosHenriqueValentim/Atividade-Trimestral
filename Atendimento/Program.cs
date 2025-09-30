@@ -19,7 +19,7 @@ namespace Atendimento15Pacientes
                 escolher = Console.ReadLine();
                 switch (escolher)
                 {
-                    case "1":
+                    case "1": // Cadastrar Paciente
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
@@ -45,7 +45,7 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nFila cheia.\n");
                         }
                         break;
-                    case "2":
+                    case "2": // Lista de Pacientes
                         Console.WriteLine("\nLista de Pacientes");
                         if (auxiliar == 0)
                         {
@@ -60,7 +60,7 @@ namespace Atendimento15Pacientes
                             }
                         }
                         break;
-                    case "3":
+                    case "3": // Atender Pacientes
                         if (auxiliar == 0)
                         {
                             Console.WriteLine("\nNenhum paciente na fila.\n");
@@ -75,7 +75,7 @@ namespace Atendimento15Pacientes
                             Paciente[auxiliar - 1] = null; auxiliar--;
                         }
                         break;
-                    case "4":
+                    case "4": // Alterar Cadastrais do Paciente 
                         Console.Write("\nDigite o número do paciente para alterar:\n");
                         int posição = int.Parse(Console.ReadLine()) - 1;
                         if (posição < auxiliar)
@@ -88,13 +88,13 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nPaciente não encontrado\n");
                         }
                         break;
-                    case "Q":
+                    case "Q": // Saida da Depuração
                         Console.WriteLine("\nDepuração Finalizada\n");
                         return;
-                    case "q":
+                    case "q": // Saida da Depuração com q minusculo
                         Console.WriteLine("\nDepuração Finalizada\n");
                         return;
-                    default:
+                    default: // Qualquer tecla que o usuario digitar
                         Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
                         break;
                 }
