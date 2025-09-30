@@ -45,7 +45,7 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nFila cheia.\n");
                         }
                         break;
-                    case "2":
+                    case "2": // Lista de Pacientes na fila
                         Console.WriteLine("\nLista de Pacientes");
                         if (auxiliar == 0)
                         {
