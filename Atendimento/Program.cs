@@ -13,7 +13,7 @@ namespace Atendimento15Pacientes
             int tamanho = 15;
             int auxiliar = 0;
             Pacientes[] TamanhodoPaciente = new Pacientes[tamanho];
-            while (true)
+            while (true) // Loop Infinito do Menu 
             {
                 Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha: ");
                 escolher = Console.ReadLine();
