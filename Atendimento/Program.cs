@@ -11,18 +11,18 @@ namespace Atendimento15Pacientes
         static void Main(string[] args)
         {
             string escolher;
-            int tamanho = 15;  
-            int auxiliar = 0;   
-            Pacientes[] Indice = new Pacientes[tamanho];
+            int tamanho = 15;
+            int auxiliar = 0;
+            Pacientes[] IndiceFila = new Pacientes[tamanho];
 
-            while (true)      
+            while (true)
             {
                 Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 escolher = Console.ReadLine();
 
                 switch (escolher)
                 {
-                    case "1":   
+                    case "1":
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
@@ -31,15 +31,15 @@ namespace Atendimento15Pacientes
 
                             if (NovoPaciente.preferencial >= 2)
                             {
-                                for (int A = auxiliar; A > 0; A--)  
+                                for (int A = auxiliar; A > 0; A--)
                                 {
-                                    Indice[A] = Indice[A - 1];
+                                    IndiceFila[A] = IndiceFila[A - 1];
                                 }
-                                Indice[0] = NovoPaciente;   
+                                IndiceFila[0] = NovoPaciente;
                             }
                             else
                             {
-                                Indice[auxiliar] = NovoPaciente;  
+                                IndiceFila[auxiliar] = NovoPaciente;
                             }
 
                             auxiliar++;
@@ -51,7 +51,7 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "2":   
+                    case "2":
                         Console.WriteLine("\nLista de Pacientes");
                         if (auxiliar == 0)
                         {
@@ -62,37 +62,37 @@ namespace Atendimento15Pacientes
                             for (int B = 0; B < auxiliar; B++)
                             {
                                 Console.Write(B + 1 + " - ");
-                                Indice[B].MostrarDados();
+                                IndiceFila[B].MostrarDados();
                             }
                         }
                         break;
 
-                    case "3":    
+                    case "3":
                         if (auxiliar == 0)
                         {
                             Console.WriteLine("\nNenhum paciente na fila.\n");
                         }
                         else
                         {
-                            Console.WriteLine("\nAtendendo " + Indice[0].nome);
-                            
+                            Console.WriteLine("\nAtendendo " + IndiceFila[0].nome);
+
                             for (int C = 0; C < auxiliar - 1; C++)
                             {
-                                Indice[C] = Indice[C + 1];
+                                IndiceFila[C] = IndiceFila[C + 1];
                             }
 
-                            Indice[auxiliar - 1] = null;
+                            IndiceFila[auxiliar - 1] = null;
                             auxiliar--;
                         }
                         break;
 
-                    case "4":  
+                    case "4":
                         Console.Write("\nDigite o número do paciente para alterar:");
                         int NumeroDoIndice = int.Parse(Console.ReadLine()) - 1;
 
                         if (NumeroDoIndice < auxiliar)
                         {
-                            Indice[NumeroDoIndice].CadastrarPaciente();
+                            IndiceFila[NumeroDoIndice].CadastrarPaciente();
                             Console.WriteLine("\nDados alterados com sucesso\n");
                         }
                         else
@@ -101,13 +101,13 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "Q":  
+                    case "Q":
                         Console.WriteLine("\nSoftware Finalizado");
                         return;
-                    case "q":   
+                    case "q":
                         Console.WriteLine("\nSoftware Finalizado");
                         return;
-                    default:    
+                    default:
                         Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
                         break;
                 }
