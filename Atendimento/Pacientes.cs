@@ -27,7 +27,7 @@ namespace Atendimento15Pacientes
 
         public void MostrarDados()
         {
-            Console.WriteLine("{0}, {1} anos, Nivel Preferêncial: {2}", nome, idade, preferencial);
+            Console.WriteLine("{0}, {1} anos, Nivel Preferêncial: {2}\n", nome, idade, preferencial);
         }
 
         public void Atendimento()
