@@ -11,18 +11,18 @@ namespace Atendimento15Pacientes
         static void Main(string[] args)
         {
             string escolher;
-            int tamanho = 15;   // Espaço Maximo de Pacientes
-            int auxiliar = 0;   // Contador dos Pacientes
+            int tamanho = 15;  
+            int auxiliar = 0;   
             Pacientes[] Indice = new Pacientes[tamanho];
 
-            while (true)        // Loop Infinito Menu 
+            while (true)      
             {
                 Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 escolher = Console.ReadLine();
 
                 switch (escolher)
                 {
-                    case "1":    // Cadastrar Paciente
+                    case "1":   
                         if (auxiliar < tamanho)
                         {
                             Pacientes NovoPaciente = new Pacientes();
@@ -51,7 +51,7 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "2":   // Lista de Pacientes na fila
+                    case "2":   
                         Console.WriteLine("\nLista de Pacientes");
                         if (auxiliar == 0)
                         {
@@ -67,7 +67,7 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "3":    // Atender o Paciente 
+                    case "3":    
                         if (auxiliar == 0)
                         {
                             Console.WriteLine("\nNenhum paciente na fila.\n");
@@ -86,7 +86,7 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "4":   // Altera os dados do Paciente de acordo da Posição dele do indice 
+                    case "4":  
                         Console.Write("\nDigite o número do paciente para alterar:");
                         int NumeroDoIndice = int.Parse(Console.ReadLine()) - 1;
 
@@ -101,13 +101,13 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "Q":   // Sair com Q maiusculo 
+                    case "Q":  
                         Console.WriteLine("\nSoftware Finalizado");
                         return;
-                    case "q":   // Sair com q minusculo
+                    case "q":   
                         Console.WriteLine("\nSoftware Finalizado");
                         return;
-                    default:    // Digitar qualquer tecla exceto 1,2,3,4,Q,q
+                    default:    
                         Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
                         break;
                 }
