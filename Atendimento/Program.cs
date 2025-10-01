@@ -29,7 +29,23 @@ namespace Atendimento15Pacientes
                             NovoPaciente.CadastrarPaciente();
                             NovoPaciente.numeropaciente = auxiliar + 1;
 
-                            IndiceFila[auxiliar] = NovoPaciente;
+                            int posicaoInsercao = auxiliar; 
+
+                            for (int A = 0; A < auxiliar; A++)
+                            {
+                                if (IndiceFila[A].preferencial < NovoPaciente.preferencial)
+                                {
+                                    posicaoInsercao = A;
+                                    break;
+                                }
+                            }
+
+                            for (int A = auxiliar; A > posicaoInsercao; A--)
+                            {
+                                IndiceFila[A] = IndiceFila[A - 1];
+                            }
+
+                            IndiceFila[posicaoInsercao] = NovoPaciente;
 
                             auxiliar++;
                             Console.WriteLine("\nPaciente Cadastrado\n");
@@ -39,6 +55,7 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nFila cheia.\n");
                         }
                         break;
+
                     case "2":
                         Console.WriteLine("\nLista de Pacientes");
                         if (auxiliar == 0)
