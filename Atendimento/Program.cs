@@ -29,23 +29,23 @@ namespace Atendimento15Pacientes
                             NovoPaciente.CadastrarPaciente();
                             NovoPaciente.numeropaciente = auxiliar + 1;
 
-                            int posicaoInsercao = auxiliar; 
+                            int PosiçãodoIndice = auxiliar; 
 
                             for (int A = 0; A < auxiliar; A++)
                             {
                                 if (IndiceFila[A].preferencial < NovoPaciente.preferencial)
                                 {
-                                    posicaoInsercao = A;
+                                    PosiçãodoIndice = A;
                                     break;
                                 }
                             }
 
-                            for (int A = auxiliar; A > posicaoInsercao; A--)
+                            for (int A = auxiliar; A > PosiçãodoIndice; A--)
                             {
                                 IndiceFila[A] = IndiceFila[A - 1];
                             }
 
-                            IndiceFila[posicaoInsercao] = NovoPaciente;
+                            IndiceFila[PosiçãodoIndice] = NovoPaciente;
 
                             auxiliar++;
                             Console.WriteLine("\nPaciente Cadastrado\n");
