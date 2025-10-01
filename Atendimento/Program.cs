@@ -95,9 +95,42 @@ namespace Atendimento15Pacientes
                         Console.Write("\nDigite o número do paciente para alterar:");
                         int NumeroDoIndice = int.Parse(Console.ReadLine()) - 1;
 
-                        if (NumeroDoIndice < auxiliar)
+                        if (NumeroDoIndice < auxiliar && NumeroDoIndice >= 0)
                         {
-                            IndiceFila[NumeroDoIndice].CadastrarPaciente();
+
+                            Pacientes pacienteAlterado = IndiceFila[NumeroDoIndice];
+
+
+                            pacienteAlterado.CadastrarPaciente();
+
+
+                            for (int i = NumeroDoIndice; i < auxiliar - 1; i++)
+                            {
+                                IndiceFila[i] = IndiceFila[i + 1];
+                            }
+
+                            IndiceFila[auxiliar - 1] = null;
+                            auxiliar--;
+
+                            int posicao = auxiliar; 
+
+                            for (int i = 0; i < auxiliar; i++)
+                            {
+                                if (IndiceFila[i].preferencial < pacienteAlterado.preferencial)
+                                {
+                                    posicao = i;
+                                    break;
+                                }
+                            }
+
+                            for (int i = auxiliar; i > posicao; i--)
+                            {
+                                IndiceFila[i] = IndiceFila[i - 1];
+                            }
+
+                            IndiceFila[posicao] = pacienteAlterado;
+                            auxiliar++;
+
                             Console.WriteLine("\nDados alterados com sucesso\n");
                         }
                         else
@@ -105,6 +138,7 @@ namespace Atendimento15Pacientes
                             Console.WriteLine("\nPaciente não encontrado\n");
                         }
                         break;
+
 
                     case "Q":
                         Console.WriteLine("\nSoftware Finalizado");
