@@ -67,7 +67,7 @@ namespace Atendimento15Pacientes
                         }
                         break;
 
-                    case "3":    // Atender o Paciente do Array
+                    case "3":    // Atender o Paciente 
                         if (auxiliar == 0)
                         {
                             Console.WriteLine("\nNenhum paciente na fila.\n");
@@ -75,8 +75,7 @@ namespace Atendimento15Pacientes
                         else
                         {
                             Console.WriteLine("\nAtendendo " + Indice[0].nome);
-
-                                // Empurra os próximos para frente
+                            
                             for (int C = 0; C < auxiliar - 1; C++)
                             {
                                 Indice[C] = Indice[C + 1];
