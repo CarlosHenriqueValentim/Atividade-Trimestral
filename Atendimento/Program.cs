@@ -132,10 +132,9 @@ namespace Atendimento15Pacientes
                                 Console.WriteLine("\nDados alterados com sucesso\n");
                             }
                             else
-                            {Console.WriteLine("\nPaciente não encontrado\n");}
+                            { Console.WriteLine("\nPaciente não encontrado\n"); }
                         }
                         break;
-
                     case "Q":
                         Console.WriteLine("\nSoftware Finalizado");
                         return;
