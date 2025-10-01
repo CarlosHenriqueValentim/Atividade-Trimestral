@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +15,13 @@ namespace Atendimento15Pacientes
 
         public void CadastrarPaciente()
         {
-            Console.Write("Digite o Nome do Paciente: ");
+            Console.Write("\nDigite o Nome do Paciente:");
             nome = Console.ReadLine();
 
-            Console.Write("Digite a Idade do Paciente: ");
+            Console.Write("\nDigite a Idade do Paciente:");
             idade = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("\nDigite o nivel Preferencial do Paciente\n1 - Baixo\n2- Médio\n3 - Alto\n");
+            Console.WriteLine("\nDigite o nivel Preferencial do Paciente\n1 - Baixo\n2- Médio\n3 - Alto");
             preferencial = int.Parse(Console.ReadLine());
         }
 
@@ -33,7 +33,7 @@ namespace Atendimento15Pacientes
         public void Atendimento()
 
         {
-            Console.WriteLine("Atendendo paciente {0}", nome);
+            Console.WriteLine("Atendendo Paciente {0}", nome);
         }
 
     }
