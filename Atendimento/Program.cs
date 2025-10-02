@@ -13,137 +13,104 @@ namespace Atendimento15Pacientes
             string escolher;
             int tamanho = 15;
             int auxiliar = 0;
+
             Pacientes[] IndiceFila = new Pacientes[tamanho];
 
             while (true)
+            {Console.Write("\nMenu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
+            escolher = Console.ReadLine();
+
+
+            switch (escolher)
             {
-                Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
-                escolher = Console.ReadLine();
+            case "1":
 
-                switch (escolher)
-                {
-                    case "1":
-                        if (auxiliar < tamanho)
-                        {
-                            Pacientes NovoPaciente = new Pacientes();
-                            NovoPaciente.CadastrarPaciente();
-                            NovoPaciente.numeropaciente = auxiliar + 1;
+            if (auxiliar == tamanho)
+            {Console.WriteLine("\nFila cheia.\n"); break;}
 
-                            int PosiçãodoIndice = auxiliar; 
+            Pacientes NovoPaciente = new Pacientes();
+            NovoPaciente.CadastrarPaciente();
+            NovoPaciente.numeropaciente = auxiliar + 1;
 
-                            for (int A = 0; A < auxiliar; A++)
-                            {
-                                if (IndiceFila[A].preferencial < NovoPaciente.preferencial)
-                                {
-                                    PosiçãodoIndice = A;
-                                    break;
-                                }
-                            }
+            int FimdaFila = auxiliar; 
 
-                            for (int A = auxiliar; A > PosiçãodoIndice; A--)
-                            {
-                                IndiceFila[A] = IndiceFila[A - 1];
-                            }
+            for (int A = 0; A < auxiliar; A++)
+            {if (NovoPaciente.preferencial > IndiceFila[A].preferencial)
+            {FimdaFila = A; break;}}
 
-                            IndiceFila[PosiçãodoIndice] = NovoPaciente;
+            for (int A = auxiliar; A > FimdaFila; A--)
+            {IndiceFila[A] = IndiceFila[A - 1];}
+                  
+            IndiceFila[FimdaFila] = NovoPaciente;
+            auxiliar++;
+            Console.WriteLine("\nPaciente Cadastrado\n");
+            break;
 
-                            auxiliar++;
-                            Console.WriteLine("\nPaciente Cadastrado\n");
-                        }
-                        else
-                        {
-                            Console.WriteLine("\nFila cheia.\n");
-                        }
-                        break;
 
-                    case "2":
-                        Console.WriteLine("\nLista de Pacientes");
-                        if (auxiliar == 0)
-                        {
-                            Console.WriteLine("\nNenhum paciente cadastrado\n");
-                        }
-                        else
-                        {
-                            for (int B = 0; B < auxiliar; B++)
-                            {
-                                Console.Write(B + 1 + " - ");
-                                IndiceFila[B].MostrarDados();
-                            }
-                        }
-                        break;
+            case "2":         
+            if (auxiliar == 0)
+            {Console.WriteLine("\nNenhum paciente cadastrado\n"); break;}
 
-                    case "3":
-                        if (auxiliar == 0)
-                        {
-                            Console.WriteLine("\nNenhum paciente na fila.\n");
-                        }
-                        else
-                        {
-                            Console.WriteLine("\nAtendendo " + IndiceFila[0].nome);
+            if(auxiliar < tamanho)
+            Console.WriteLine("\nLista de Pacientes\n");
+            for (int B = 0; B < auxiliar; B++)
+            { Console.Write(B + 1 + " - "); IndiceFila[B].MostrarDados(); }
+            break;
 
-                            for (int C = 0; C < auxiliar - 1; C++)
-                            {
-                                IndiceFila[C] = IndiceFila[C + 1];
-                            }
 
-                            IndiceFila[auxiliar - 1] = null;
-                            auxiliar--;
-                        }
-                        break;
+            case "3":
+            if (auxiliar == 0)
+            {Console.WriteLine("\nNenhum paciente na fila.\n"); break;}
 
-                    case "4":
-                        Console.Write("\nDigite o número do paciente para alterar:");
-                        int NumeroDoIndice = int.Parse(Console.ReadLine()) - 1;
+            Console.WriteLine("\nAtendendo " + IndiceFila[0].nome);
 
-                        if (NumeroDoIndice >= 0)
-                        {
-                            if (NumeroDoIndice < auxiliar)
-                            {
-                                Pacientes PacienteAlterado = IndiceFila[NumeroDoIndice];
-                                PacienteAlterado.CadastrarPaciente();
+            for (int C = 0; C < auxiliar - 1; C++)
+            {IndiceFila[C] = IndiceFila[C + 1];}
 
-                                for (int i = NumeroDoIndice; i < auxiliar - 1; i++)
-                                {
-                                    IndiceFila[i] = IndiceFila[i + 1];
-                                }
+            IndiceFila[auxiliar - 1] = null;
+            auxiliar--;
+            break;
 
-                                IndiceFila[auxiliar - 1] = null;
-                                auxiliar--;
 
-                                int posicao = auxiliar;
+            case "4":
 
-                                for (int i = 0; i < auxiliar; i++)
-                                {
-                                    if (IndiceFila[i].preferencial < PacienteAlterado.preferencial)
-                                    {
-                                        posicao = i;
-                                        break;
-                                    }
-                                }
+            Console.Write("\nDigite o número do paciente para alterar:");
+            int NumeroDoIndice = int.Parse(Console.ReadLine()) - 1;
 
-                                for (int i = auxiliar; i > posicao; i--)
-                                {
-                                    IndiceFila[i] = IndiceFila[i - 1];
-                                }
+            if (NumeroDoIndice < 0 || NumeroDoIndice >= auxiliar)
+            {Console.WriteLine("\nPaciente não encontrado\n");break;}
 
-                                IndiceFila[posicao] = PacienteAlterado;
-                                auxiliar++;
+            Pacientes PacienteSelecionado = IndiceFila[NumeroDoIndice];
+            PacienteSelecionado.CadastrarPaciente();
+                       
+            for (int i = NumeroDoIndice; i < auxiliar - 1; i++)
+            {IndiceFila[i] = IndiceFila[i + 1];}
+            auxiliar--;
+                        
+            int UltimoFila = auxiliar;
 
-                                Console.WriteLine("\nDados alterados com sucesso\n");
-                            }
-                            else
-                            { Console.WriteLine("\nPaciente não encontrado\n"); }
-                        }
-                        break;
-                    case "Q":
-                        Console.WriteLine("\nSoftware Finalizado");
-                        return;
-                    case "q":
-                        Console.WriteLine("\nSoftware Finalizado");
-                        return;
-                    default:
-                        Console.WriteLine("\nOpção incorreta, Digite outra Opção\n");
-                        break;
+            for (int i = 0; i < auxiliar; i++)
+            {if (IndiceFila[i].preferencial < PacienteSelecionado.preferencial)
+            {UltimoFila = i;break;}}
+
+            for (int i = auxiliar; i > UltimoFila; i--)
+            {IndiceFila[i] = IndiceFila[i - 1];}
+
+            IndiceFila[UltimoFila] = PacienteSelecionado;
+            auxiliar++;
+            Console.WriteLine("\nDados alterados com sucesso\n");
+            break;
+
+
+            case "Q":
+            case "q":
+            Console.WriteLine("\nSoftware Finalizado");
+            return;
+
+
+            default:
+            Console.WriteLine("\nOpção incorreta, Digite as opções do Menu\n");
+            break;
                 }
             }
         }
