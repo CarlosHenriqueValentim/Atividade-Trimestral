@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atendimento15Pacientes
+namespace TESTEPACINETS
 {
     internal class Program
     {
@@ -83,20 +83,20 @@ namespace Atendimento15Pacientes
             Pacientes PacienteSelecionado = IndiceFila[NumeroDoIndice];
             PacienteSelecionado.CadastrarPaciente();
 
-            for (int i = NumeroDoIndice; i < auxiliar - 1; i++)
-            { IndiceFila[i] = IndiceFila[i + 1]; }
+            for (int D = NumeroDoIndice; D < auxiliar - 1; D++)
+            { IndiceFila[D] = IndiceFila[D + 1]; }
             auxiliar--;
 
             int UltimoFila = auxiliar;
 
-            for (int i = 0; i < auxiliar; i++)
+            for (int E = 0; E < auxiliar; E++)
             {
-            if (IndiceFila[i].preferencial < PacienteSelecionado.preferencial)
-            { UltimoFila = i; break; }
+            if (IndiceFila[E].preferencial < PacienteSelecionado.preferencial)
+            { UltimoFila = E; break; }
             }
 
-            for (int i = auxiliar; i > UltimoFila; i--)
-            { IndiceFila[i] = IndiceFila[i - 1]; }
+            for (int F = auxiliar; F > UltimoFila; F--)
+            { IndiceFila[F] = IndiceFila[F - 1]; }
 
             IndiceFila[UltimoFila] = PacienteSelecionado;
             auxiliar++;
