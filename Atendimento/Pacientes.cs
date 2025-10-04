@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TESTEPACINETS
+namespace Atendimento15Pacientes
 {
     class Pacientes
     {
