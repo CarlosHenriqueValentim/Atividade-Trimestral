@@ -9,19 +9,21 @@ namespace Atendimento15Pacientes
     class Pacientes
     {
         public string nome;
-        public int numeropaciente;
-        public int preferencial;
-
+        public int numeropaciente, preferencial;
         public void CadastrarPaciente()
-        {Console.Write("\nDigite o Nome do Paciente:");
-         nome = Console.ReadLine();
+        {
+            Console.Write("\nDigite o Nome do Paciente:");
+            nome = Console.ReadLine();
 
-         Console.Write("\nDigite o nivel Preferencial do Paciente\n\n1 - Baixo\n2- Médio\n3 - Alto\n\nEscolha:");
-         preferencial = int.Parse(Console.ReadLine());}
+            Console.Write("\nDigite o nivel Preferencial do Paciente\n\n1 - Baixo\n2- Médio\n3 - Alto\n\nEscolha:");
+            preferencial = int.Parse(Console.ReadLine());
 
+            if (preferencial < 1 || preferencial > 3)
+            {Console.WriteLine("\nOpção inválida! Digite novamente.");
+             CadastrarPaciente();}
+        }
         public void MostrarDados()
         {Console.WriteLine("{0} - Nivel Preferêncial: {1}", nome, preferencial);}
-
         public void Atendimento()
         {Console.WriteLine("Atendendo Paciente {0}", nome);}
     }
