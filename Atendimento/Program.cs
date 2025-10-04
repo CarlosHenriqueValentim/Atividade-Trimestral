@@ -32,21 +32,21 @@ namespace Atendimento15Pacientes
                         NovoPaciente.CadastrarPaciente();
                         NovoPaciente.numeropaciente = auxiliar + 1;
 
-                        int FimdaFila = auxiliar;
+                        int AtrasdoPreferencialMaior = auxiliar;
                         for (int i = 0; i < auxiliar; i++)
                         {
                             if (NovoPaciente.preferencial > IndiceFila[i].preferencial)
                             { 
-                             FimdaFila = i; break; 
+                             AtrasdoPreferencialMaior = i; break; 
                             }
                         }
 
-                        for (int i = auxiliar; i > FimdaFila; i--)
+                        for (int i = auxiliar; i > AtrasdoPreferencialMaior; i--)
                         {
                          IndiceFila[i] = IndiceFila[i - 1]; 
                         }
 
-                        IndiceFila[FimdaFila] = NovoPaciente;
+                        IndiceFila[AtrasdoPreferencialMaior] = NovoPaciente;
                         auxiliar++;
                         Console.WriteLine("\nPaciente Cadastrado\n");
                         break;
