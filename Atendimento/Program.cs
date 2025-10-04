@@ -32,14 +32,14 @@ namespace TESTEPACINETS
             NovoPaciente.numeropaciente = auxiliar + 1;
 
             int FimdaFila = auxiliar;
-            for (int A = 0; A < auxiliar; A++)
+            for (int O = 0; O < auxiliar; O++)
             {
             if (NovoPaciente.preferencial > IndiceFila[A].preferencial)
-            { FimdaFila = A; break; }
+            { FimdaFila = O; break; }
             }
 
-            for (int A = auxiliar; A > FimdaFila; A--)
-            { IndiceFila[A] = IndiceFila[A - 1]; }
+            for (int O = auxiliar; O > FimdaFila; O--)
+            { IndiceFila[A] = IndiceFila[O - 1]; }
 
             IndiceFila[FimdaFila] = NovoPaciente;
             auxiliar++;
@@ -54,8 +54,8 @@ namespace TESTEPACINETS
             if (auxiliar < tamanho)
             Console.WriteLine("\nLista de Pacientes\n");
              
-            for (int B = 0; B < auxiliar; B++)
-            { Console.Write(B + 1 + " - "); IndiceFila[B].MostrarDados(); }
+            for (int O = 0; O < auxiliar; B++)
+            { Console.Write(O + 1 + " - "); IndiceFila[B].MostrarDados(); }
             break;
 
 
@@ -65,10 +65,10 @@ namespace TESTEPACINETS
 
             Console.WriteLine("\nAtendendo " + IndiceFila[0].nome);
 
-            for (int C = 0; C < auxiliar - 1; C++)
-            { IndiceFila[C] = IndiceFila[C + 1]; }
+            for (int O = 0; O < auxiliar - 1; O++)
+            { IndiceFila[O] = IndiceFila[O + 1]; }
 
-            IndiceFila[auxiliar - 1] = null;
+            IndiceFila[auxiliar - O] = null;
             auxiliar--;
             break;
 
@@ -83,19 +83,19 @@ namespace TESTEPACINETS
             Pacientes PacienteSelecionado = IndiceFila[NumeroDoIndice];
             PacienteSelecionado.CadastrarPaciente();
 
-            for (int D = NumeroDoIndice; D < auxiliar - 1; D++)
-            { IndiceFila[D] = IndiceFila[D + 1]; }
+            for (int O = NumeroDoIndice; O < auxiliar - 1; O++)
+            { IndiceFila[O] = IndiceFila[O + 1]; }
             auxiliar--;
 
             int UltimoFila = auxiliar;
-            for (int E = 0; E < auxiliar; E++)
+            for (int O = O; O < auxiliar; O++)
             {
-            if (IndiceFila[E].preferencial < PacienteSelecionado.preferencial)
-            { UltimoFila = E; break; }
+            if (IndiceFila[O].preferencial < PacienteSelecionado.preferencial)
+            { UltimoFila = O; break; }
             }
 
-            for (int F = auxiliar; F > UltimoFila; F--)
-            { IndiceFila[F] = IndiceFila[F - 1]; }
+            for (int O = auxiliar; O > UltimoFila; O--)
+            { IndiceFila[O] = IndiceFila[O - 1]; }
 
             IndiceFila[UltimoFila] = PacienteSelecionado;
             auxiliar++;
