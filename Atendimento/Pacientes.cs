@@ -10,6 +10,7 @@ namespace TESTEPACINETS
     {
         public string nome;
         public int numeropaciente, preferencial;
+        
         public void CadastrarPaciente()
         {
         Console.Write("\nDigite o Nome do Paciente:");
@@ -20,11 +21,17 @@ namespace TESTEPACINETS
 
         if (preferencial < 1 || preferencial > 3)
         {Console.WriteLine("\nOpção inválida! Digite novamente.");
-        CadastrarPaciente();}
+         CadastrarPaciente();}
         }
+        
         public void MostrarDados()
-        {Console.WriteLine("{0} - Nivel Preferêncial: {1}", nome, preferencial);}
+        {
+            Console.WriteLine("{0} - Nivel Preferêncial: {1}", nome, preferencial);
+        }
+        
         public void Atendimento()
-        {Console.WriteLine("Atendendo Paciente {0}", nome);}
+        {
+            Console.WriteLine("Atendendo Paciente {0}", nome);
+        }
     }
 }
