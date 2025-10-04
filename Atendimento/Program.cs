@@ -32,7 +32,6 @@ namespace TESTEPACINETS
             NovoPaciente.numeropaciente = auxiliar + 1;
 
             int FimdaFila = auxiliar;
-
             for (int A = 0; A < auxiliar; A++)
             {
             if (NovoPaciente.preferencial > IndiceFila[A].preferencial)
@@ -54,6 +53,7 @@ namespace TESTEPACINETS
 
             if (auxiliar < tamanho)
             Console.WriteLine("\nLista de Pacientes\n");
+             
             for (int B = 0; B < auxiliar; B++)
             { Console.Write(B + 1 + " - "); IndiceFila[B].MostrarDados(); }
             break;
@@ -88,7 +88,6 @@ namespace TESTEPACINETS
             auxiliar--;
 
             int UltimoFila = auxiliar;
-
             for (int E = 0; E < auxiliar; E++)
             {
             if (IndiceFila[E].preferencial < PacienteSelecionado.preferencial)
