@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atendimento15Pacientes
+namespace TESTEPACINETS
 {
     class Pacientes
     {
@@ -12,15 +12,15 @@ namespace Atendimento15Pacientes
         public int numeropaciente, preferencial;
         public void CadastrarPaciente()
         {
-            Console.Write("\nDigite o Nome do Paciente:");
-            nome = Console.ReadLine();
+        Console.Write("\nDigite o Nome do Paciente:");
+        nome = Console.ReadLine();
 
-            Console.Write("\nDigite o nivel Preferencial do Paciente\n\n1 - Baixo\n2- Médio\n3 - Alto\n\nEscolha:");
-            preferencial = int.Parse(Console.ReadLine());
+        Console.Write("\nDigite o nivel Preferencial do Paciente\n\n1 - Baixo\n2- Médio\n3 - Alto\n\nEscolha:");
+        preferencial = int.Parse(Console.ReadLine());
 
-            if (preferencial < 1 || preferencial > 3)
-            {Console.WriteLine("\nOpção inválida! Digite novamente.");
-             CadastrarPaciente();}
+        if (preferencial < 1 || preferencial > 3)
+        {Console.WriteLine("\nOpção inválida! Digite novamente.");
+        CadastrarPaciente();}
         }
         public void MostrarDados()
         {Console.WriteLine("{0} - Nivel Preferêncial: {1}", nome, preferencial);}
