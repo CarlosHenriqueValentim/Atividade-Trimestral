@@ -93,7 +93,9 @@ namespace Atendimento15Pacientes
                         PacienteSelecionado.CadastrarPaciente();
 
                         for (int i = NumeroDoIndice; i < auxiliar - 1; i++)
-                        { IndiceFila[i] = IndiceFila[i + 1]; }
+                        { 
+                            IndiceFila[i] = IndiceFila[i + 1]; 
+                        }
                         auxiliar--;
 
                         int UltimoFila = auxiliar;
