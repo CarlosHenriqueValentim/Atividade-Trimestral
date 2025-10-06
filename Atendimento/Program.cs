@@ -48,7 +48,7 @@ namespace Atendimento15Pacientes
 
                         filaPacientes[posicaoPreferencial] = novoPaciente;
                         auxiliar++;
-                        Console.WriteLine("\nPaciente Cadastrado\n");
+                        Console.WriteLine("\n(Paciente Cadastrado)\n");
                         break;
 
 
@@ -115,18 +115,18 @@ namespace Atendimento15Pacientes
 
                         filaPacientes[novaPosicao] = pacienteEditado;
                         auxiliar++;
-                        Console.WriteLine("\nDados alterados com sucesso\n");
+                        Console.WriteLine("\n(Dados alterados com sucesso)\n");
                         break;
 
 
                     case "Q":
                     case "q":
-                        Console.WriteLine("\nSoftware Finalizado");
+                        Console.WriteLine("\nSoftware Finalizado :)");
                         return;
 
 
                     default:
-                        Console.WriteLine("\nOpção incorreta, Digite as opções do Menu\n");
+                        Console.WriteLine("\n(Opção incorreta, Digite as opções do Menu)\n");
                         break;
                 }
             }
