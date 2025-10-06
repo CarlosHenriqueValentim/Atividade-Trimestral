@@ -17,7 +17,7 @@ namespace Atendimento15Pacientes
 
             while (true)
             {
-                Console.Write("\nMenu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
+                Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 opcao = Console.ReadLine();
 
                 switch (opcao)
@@ -25,7 +25,7 @@ namespace Atendimento15Pacientes
                     case "1":
 
                         if (auxiliar >= tamanho)
-                        { Console.WriteLine("\nFila cheia.\n"); break; }
+                        { Console.WriteLine("\n(Fila cheia.)\n"); break; }
 
                         Pacientes novoPaciente = new Pacientes();
 
@@ -55,7 +55,7 @@ namespace Atendimento15Pacientes
                     case "2":
 
                         if (auxiliar <= 0)
-                        { Console.WriteLine("\nNenhum paciente cadastrado\n"); break; }
+                        { Console.WriteLine("\n(Nenhum paciente cadastrado)\n"); break; }
 
                         if (auxiliar < tamanho)
                             Console.WriteLine("\nLista de Pacientes\n");
@@ -68,7 +68,7 @@ namespace Atendimento15Pacientes
                     case "3":
 
                         if (auxiliar <= 0)
-                        { Console.WriteLine("\nNenhum paciente na fila.\n"); break; }
+                        { Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break; }
 
                         Console.WriteLine("\nAtendendo " + filaPacientes[0].nome);
 
@@ -87,7 +87,7 @@ namespace Atendimento15Pacientes
                         int indicePaciente = int.Parse(Console.ReadLine()) - 1;
 
                         if (indicePaciente >= auxiliar)
-                        { Console.WriteLine("\nPaciente não encontrado\n"); break; }
+                        { Console.WriteLine("\n(Paciente não encontrado)\n"); break; }
 
                         Pacientes pacienteEditado = filaPacientes[indicePaciente];
                         pacienteEditado.CadastrarPaciente();
