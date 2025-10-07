@@ -86,7 +86,7 @@ namespace Atendimento15Pacientes
                         Console.Write("\nDigite o número do paciente para alterar:");
                         int indicePaciente = int.Parse(Console.ReadLine()) - 1;
 
-                        if (indicePaciente >= auxiliar)
+                        if (indicePaciente > auxiliar)
                         { Console.WriteLine("\n(Paciente não encontrado)\n"); break; }
 
                         Pacientes pacienteEditado = filaPacientes[indicePaciente];
