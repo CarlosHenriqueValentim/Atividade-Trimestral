@@ -11,119 +11,132 @@ namespace Atendimento15Pacientes
         static void Main(string[] args)
         {
             string opcao;
-            int tamanho = 15, auxiliar = 0;
+            int tam = 15, aux = 0;
 
-            Pacientes[] filaPacientes = new Pacientes[tamanho];
+            Pacientes[] array = new Pacientes[tam];
 
             while (true)
             {
-                Console.Write("Menu Atendimento\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
+                Console.Write("Menu\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 opcao = Console.ReadLine();
 
                 switch (opcao)
                 {
                     case "1":
 
-                        if (auxiliar >= tamanho)
-                        { Console.WriteLine("\n(Fila cheia.)\n"); break; }
+                if (aux >= tam)
+                {Console.WriteLine("\n(Fila cheia.)\n"); break;}
 
-                        Pacientes novoPaciente = new Pacientes();
+                Pacientes novopaciente = new Pacientes();
 
-                        novoPaciente.CadastrarPaciente();
-                        novoPaciente.numeropaciente = auxiliar + 1;
+                novopaciente.CadastrarPaciente();
+                novopaciente.numeropaciente = aux + 1;
 
-                        int posicaoPreferencial = auxiliar;
-                        for (int i = 0; i < auxiliar; i++)
+                int posSegundaria = aux;
+
+                for (int i = 0; i < aux; i++)
                         {
-                            if (novoPaciente.preferencial > filaPacientes[i].preferencial)
+                            if (novopaciente.preferencial > array[i].preferencial)
                             {
-                                posicaoPreferencial = i; break;
+                                posSegundaria = i; break;
                             }
                         }
 
-                        for (int i = auxiliar; i > posicaoPreferencial; i--)
+                for (int i = aux; i > posSegundaria; i--)
                         {
-                            filaPacientes[i] = filaPacientes[i - 1];
+                            array[i] = array[i - 1];
                         }
 
-                        filaPacientes[posicaoPreferencial] = novoPaciente;
-                        auxiliar++;
-                        Console.WriteLine("\n(Paciente Cadastrado)\n");
-                        break;
+                array[posSegundaria] = novopaciente;
+                aux++;
+                Console.WriteLine("\n(Paciente Cadastrado)\n");
+                break;
 
 
                     case "2":
 
-                        if (auxiliar <= 0)
-                        { Console.WriteLine("\n(Nenhum paciente cadastrado)\n"); break; }
+                if (aux <= 0)
 
-                        if (auxiliar < tamanho)
-                            Console.WriteLine("\nLista de Pacientes\n");
+                {Console.WriteLine("\n(Nenhum paciente cadastrado)\n"); break;}
 
-                        for (int i = 0; i < auxiliar; i++)
-                        { Console.Write(i + 1 + " - "); filaPacientes[i].MostrarDados(); }
-                        break;
+                if (aux < tam)
+
+                Console.WriteLine("\nLista de Pacientes\n");
+
+                for (int i = 0; i < aux; i++)
+                {Console.Write(i + 1 + " - "); array[i].MostrarDados();}
+                break;
 
 
-                    case "3":
 
-                        if (auxiliar <= 0)
-                        { Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break; }
+                case "3":
 
-                        Console.WriteLine("\nAtendendo " + filaPacientes[0].nome);
+                if (aux < 0)
+                {
+                    Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break;
+                }
 
-                        for (int i = 0; i < auxiliar - 1; i++)
-                        {
-                            filaPacientes[i] = filaPacientes[i + 1];
-                        }
+                array[0].Atendimento();
 
-                        filaPacientes[auxiliar - 1] = null;
-                        auxiliar--;
-                        break;
+                for (int i = 0; i < aux - 1; i++)
+
+                   {
+                    array[i] = array[i + 1];
+                   }
+
+                array[aux - 1] = null;
+                aux--;
+                break;
+
 
                     case "4":
 
-                        Console.Write("\nDigite o número do paciente para alterar:");
-                        int indicePaciente = int.Parse(Console.ReadLine()) - 1;
+                Console.Write("\nDigite o número do paciente para alterar:");
+                int iP = int.Parse(Console.ReadLine()) - 1;
 
-                        if (indicePaciente > auxiliar)
-                        { Console.WriteLine("\n(Paciente não encontrado)\n"); break; }
+                if (iP >= aux)
+                {
+                 Console.WriteLine("\n(Paciente não encontrado)\n"); break;
+                }
 
-                        Pacientes pacienteEditado = filaPacientes[indicePaciente];
-                        pacienteEditado.CadastrarPaciente();
+                if (iP < aux)
+                {
+                 Pacientes pE = array[iP];
+                 pE.CadastrarPaciente();
 
-                        for (int i = indicePaciente; i < auxiliar - 1; i++)
-                        {
-                            filaPacientes[i] = filaPacientes[i + 1];
-                        }
-                        auxiliar--;
+                for (int i = iP; i < aux - 1; i++)
+                      {
+                       array[i] = array[i + 1];
+                      }
+                      aux--;
 
-                        int novaPosicao = auxiliar;
+                      int novaPosi = aux;
 
-                        for (int i = 0; i < auxiliar; i++)
-                        {
-                            if (filaPacientes[i].preferencial < pacienteEditado.preferencial)
-                            {
-                                novaPosicao = i; break;
-                            }
-                        }
+                for (int i = 0; i < aux; i++)
+                      {
+                       if (array[i].preferencial <= pE.preferencial)
+                          {
+                           novaPosi = i; break;
+                          }
+                      }
 
-                        for (int i = auxiliar; i > novaPosicao; i--)
-                        {
-                            filaPacientes[i] = filaPacientes[i - 1];
-                        }
+                for (int i = aux; i > novaPosi; i--)
+                      {
+                       array[i] = array[i - 1];
+                      }
 
-                        filaPacientes[novaPosicao] = pacienteEditado;
-                        auxiliar++;
-                        Console.WriteLine("\n(Dados alterados com sucesso)\n");
-                        break;
+                    array[novaPosi] = pE;
+                    aux++;
+                    Console.WriteLine("\n(Dados alterados com sucesso)\n");
+                }
+                break;
 
 
                     case "Q":
                     case "q":
+
                         Console.WriteLine("\nSoftware Finalizado :)");
                         return;
-
 
                     default:
                         Console.WriteLine("\n(Opção incorreta, Digite as opções do Menu)\n");
