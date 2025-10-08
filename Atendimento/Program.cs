@@ -35,22 +35,22 @@ namespace Atendimento15Pacientes
                 novopaciente.CadastrarPaciente();
                 novopaciente.numerodafila = aux + 1;
 
-                int iA = aux;
+                int indiAnte = aux;
 
                 for (int i = 0; i < aux; i++)
                 {
                 if (novopaciente.preferencial > array[i].preferencial)
                 {
-                 iA = i; break;
+                 indiAnte = i; break;
                 }
                 }
 
-                for (int i = aux; i > iA; i--)
+                for (int i = aux; i > indiAnte; i--)
                 {
                  array[i] = array[i - 1];
                 }
 
-                array[iA] = novopaciente;
+                array[indiAnte] = novopaciente;
                 aux++;
                 Console.WriteLine("\n(Paciente Cadastrado)\n");
                 break;
@@ -100,7 +100,7 @@ namespace Atendimento15Pacientes
                 Console.Write("\nDigite o número do paciente para alterar:");
                 int indPac = int.Parse(Console.ReadLine()) - 1;
 
-                if (indPac > aux || indPac <= 0) 
+                if (indPac > aux || 0 == aux) 
                 {
                  Console.WriteLine("\n(Paciente não encontrado)\n"); break;
                 }
