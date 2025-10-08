@@ -33,7 +33,7 @@ namespace Atendimento15Pacientes
  
         public void Atendimento()
         {
-            Console.WriteLine("\n(Atendendo o Paciente {0})\n", nome);
+            Console.WriteLine("\n(Atendendo o(a) Paciente {0})\n", nome);
         }
     }
 }
