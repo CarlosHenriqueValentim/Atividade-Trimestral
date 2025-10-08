@@ -100,7 +100,7 @@ namespace Atendimento15Pacientes
                 Console.Write("\nDigite o número do paciente para alterar:");
                 int iP = int.Parse(Console.ReadLine()) - 1;
 
-                if (iP > aux || iP < 0) 
+                if (iP > aux || iP <= 0) 
                 {
                  Console.WriteLine("\n(Paciente não encontrado)\n"); break;
                 }
@@ -119,12 +119,12 @@ namespace Atendimento15Pacientes
                 int posSeg = aux;
 
                 for (int i = 0; i < aux; i++)
-                     {
-                       if (array[i].preferencial < pE.preferencial)
-                          {
-                           posSeg = i; break;
-                          }
-                     }
+                {
+                if (array[i].preferencial < pE.preferencial)
+                {
+                posSeg = i; break;
+                }
+                }
 
                 for (int i = aux; i > posSeg; i--)
                 {
