@@ -30,7 +30,7 @@ namespace Atendimento15Pacientes
                 Pacientes novopaciente = new Pacientes();
 
                 novopaciente.CadastrarPaciente();
-                novopaciente.numeropaciente = aux + 1;
+                novopaciente.numerodafila = aux + 1;
 
                 int posSegundaria = aux;
 
