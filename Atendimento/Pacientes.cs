@@ -26,12 +26,12 @@ namespace Atendimento15Pacientes
         
         public void MostrarDados()
         {
-            Console.WriteLine("{0} - Nivel Preferêncial: {1}", nome, preferencial);
+            Console.WriteLine("{0} - Nivel Preferêncial: {1}\n", nome, preferencial);
         }
         
         public void Atendimento()
         {
-            Console.WriteLine("Atendendo Paciente {0}", nome);
+            Console.WriteLine("\n(Atendendo o Paciente {0})\n", nome);
         }
     }
 }
