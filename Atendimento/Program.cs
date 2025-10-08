@@ -20,13 +20,16 @@ namespace Atendimento15Pacientes
                 Console.Write("Menu\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 opcao = Console.ReadLine();
 
-                switch (opcao)
+            switch (opcao)
                 {
-                    case "1":
+                case "1":
 
                 if (aux >= tam)
-                {Console.WriteLine("\n(Fila cheia.)\n"); break;}
-
+                {
+                 Console.WriteLine("\n(Fila cheia.)\n"); break;
+                }
+                else
+                {
                 Pacientes novopaciente = new Pacientes();
 
                 novopaciente.CadastrarPaciente();
@@ -35,66 +38,69 @@ namespace Atendimento15Pacientes
                 int posSegundaria = aux;
 
                 for (int i = 0; i < aux; i++)
-                        {
-                            if (novopaciente.preferencial > array[i].preferencial)
-                            {
-                                posSegundaria = i; break;
-                            }
-                        }
+                {
+                if (novopaciente.preferencial > array[i].preferencial)
+                {
+                 posSegundaria = i; break;
+                }
+                }
 
                 for (int i = aux; i > posSegundaria; i--)
-                        {
-                            array[i] = array[i - 1];
-                        }
+                {
+                 array[i] = array[i - 1];
+                }
 
                 array[posSegundaria] = novopaciente;
                 aux++;
                 Console.WriteLine("\n(Paciente Cadastrado)\n");
                 break;
+                }
 
 
-                    case "2":
+                case "2":
 
                 if (aux <= 0)
-
-                {Console.WriteLine("\n(Nenhum paciente cadastrado)\n"); break;}
-
-                if (aux < tam)
-
+                {
+                Console.WriteLine("\n(Nenhum paciente cadastrado)\n"); break;
+                }
+                else
+                { 
                 Console.WriteLine("\nLista de Pacientes\n");
 
                 for (int i = 0; i < aux; i++)
-                {Console.Write(i + 1 + " - "); array[i].MostrarDados();}
+                { 
+                Console.Write(i + 1 + " - "); array[i].MostrarDados(); 
+                }
                 break;
-
+                }
 
 
                 case "3":
 
                 if (aux < 0)
                 {
-                    Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break;
+                 Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break;
                 }
-
+                else {
                 array[0].Atendimento();
 
                 for (int i = 0; i < aux - 1; i++)
+                {
+                 array[i] = array[i + 1];
+                }
 
-                   {
-                    array[i] = array[i + 1];
-                   }
-
-                array[aux - 1] = null;
-                aux--;
-                break;
+                 array[aux - 1] = null;
+                 aux--;
+                 break;
+                }
 
 
-                    case "4":
+                case "4":
 
                 Console.Write("\nDigite o número do paciente para alterar:");
                 int iP = int.Parse(Console.ReadLine()) - 1;
 
-                if (iP >= aux)
+                if (iP > aux || iP < 1) 
                 {
                  Console.WriteLine("\n(Paciente não encontrado)\n"); break;
                 }
@@ -105,42 +111,42 @@ namespace Atendimento15Pacientes
                  pE.CadastrarPaciente();
 
                 for (int i = iP; i < aux - 1; i++)
-                      {
-                       array[i] = array[i + 1];
-                      }
-                      aux--;
+                {
+                 array[i] = array[i + 1];
+                }
+                aux--;
 
-                      int novaPosi = aux;
+                int novaPosi = aux;
 
                 for (int i = 0; i < aux; i++)
-                      {
+                     {
                        if (array[i].preferencial <= pE.preferencial)
                           {
                            novaPosi = i; break;
                           }
-                      }
+                     }
 
                 for (int i = aux; i > novaPosi; i--)
-                      {
-                       array[i] = array[i - 1];
-                      }
+                {
+                 array[i] = array[i - 1];
+                }
 
-                    array[novaPosi] = pE;
-                    aux++;
-                    Console.WriteLine("\n(Dados alterados com sucesso)\n");
+                array[novaPosi] = pE;
+                aux++;
+                Console.WriteLine("\n(Dados alterados com sucesso)\n");
                 }
                 break;
 
 
-                    case "Q":
-                    case "q":
+                case "Q":
+                case "q":
 
-                        Console.WriteLine("\nSoftware Finalizado :)");
-                        return;
+                Console.WriteLine("\nSoftware Finalizado :)");
+                return;
 
-                    default:
-                        Console.WriteLine("\n(Opção incorreta, Digite as opções do Menu)\n");
-                        break;
+                default:
+                Console.WriteLine("\n(Opção incorreta, Digite as opções do Menu)\n");
+                break;
                 }
             }
         }
