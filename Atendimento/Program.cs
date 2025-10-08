@@ -35,22 +35,22 @@ namespace Atendimento15Pacientes
                 novopaciente.CadastrarPaciente();
                 novopaciente.numerodafila = aux + 1;
 
-                int posSegundaria = aux;
+                int iA = aux;
 
                 for (int i = 0; i < aux; i++)
                 {
                 if (novopaciente.preferencial > array[i].preferencial)
                 {
-                 posSegundaria = i; break;
+                 iA = i; break;
                 }
                 }
 
-                for (int i = aux; i > posSegundaria; i--)
+                for (int i = aux; i > iA; i--)
                 {
                  array[i] = array[i - 1];
                 }
 
-                array[posSegundaria] = novopaciente;
+                array[iA] = novopaciente;
                 aux++;
                 Console.WriteLine("\n(Paciente Cadastrado)\n");
                 break;
@@ -98,40 +98,40 @@ namespace Atendimento15Pacientes
                 case "4":
 
                 Console.Write("\nDigite o número do paciente para alterar:");
-                int iP = int.Parse(Console.ReadLine()) - 1;
+                int indPac = int.Parse(Console.ReadLine()) - 1;
 
-                if (iP > aux || iP <= 0) 
+                if (indPac > aux || indPac <= 0) 
                 {
                  Console.WriteLine("\n(Paciente não encontrado)\n"); break;
                 }
 
-                if (iP < aux)
+                if (indPac < aux)
                 {
-                 Pacientes pE = array[iP];
+                 Pacientes pE = array[indPac];
                  pE.CadastrarPaciente();
 
-                for (int i = iP; i < aux - 1; i++)
+                for (int i = indPac; i < aux - 1; i++)
                 {
                  array[i] = array[i + 1];
                 }
                 aux--;
 
-                int posSeg = aux;
+                int indAnte = aux;
 
                 for (int i = 0; i < aux; i++)
                 {
                 if (array[i].preferencial < pE.preferencial)
                 {
-                posSeg = i; break;
+                indAnte = i; break;
                 }
                 }
 
-                for (int i = aux; i > posSeg; i--)
+                for (int i = aux; i > indAnte; i--)
                 {
                  array[i] = array[i - 1];
                 }
 
-                array[posSeg] = pE;
+                array[indAnte] = pE;
                 aux++;
                 Console.WriteLine("\n(Dados alterados com sucesso)\n");
                 }
