@@ -17,7 +17,7 @@ namespace Atendimento15Pacientes
 
             while (true)
             {
-                Console.Write("Menu\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
+                Console.Write("[Menu]\n\nCadastrar - 1\nLista de Pacientes - 2 \nAtender - 3\nAlterar Dados - 4\nSair - Q\n\nEscolha:");
                 opcao = Console.ReadLine();
 
             switch (opcao)
@@ -26,7 +26,7 @@ namespace Atendimento15Pacientes
 
                 if (aux >= tam)
                 {
-                 Console.WriteLine("\n(Fila cheia.)\n"); break;
+                 Console.WriteLine("\n(Fila cheia)\n"); break;
                 }
                 else
                 {
@@ -77,14 +77,14 @@ namespace Atendimento15Pacientes
 
                 case "3":
 
-                if (aux < 0)
+                if (aux <= 0)
                 {
-                 Console.WriteLine("\n(Nenhum paciente na fila.)\n"); break;
+                 Console.WriteLine("\n(Nenhum paciente na fila)\n"); break;
                 }
                 else {
                 array[0].Atendimento();
 
-                for (int i = 0; i < aux - 1; i++)
+                for (int i = 0; i < aux -1; i++)
                 {
                  array[i] = array[i + 1];
                 }
@@ -100,7 +100,7 @@ namespace Atendimento15Pacientes
                 Console.Write("\nDigite o número do paciente para alterar:");
                 int iP = int.Parse(Console.ReadLine()) - 1;
 
-                if (iP > aux || iP < 1) 
+                if (iP > aux || iP < 0) 
                 {
                  Console.WriteLine("\n(Paciente não encontrado)\n"); break;
                 }
@@ -116,22 +116,22 @@ namespace Atendimento15Pacientes
                 }
                 aux--;
 
-                int novaPosi = aux;
+                int posSeg = aux;
 
                 for (int i = 0; i < aux; i++)
                      {
-                       if (array[i].preferencial <= pE.preferencial)
+                       if (array[i].preferencial < pE.preferencial)
                           {
-                           novaPosi = i; break;
+                           posSeg = i; break;
                           }
                      }
 
-                for (int i = aux; i > novaPosi; i--)
+                for (int i = aux; i > posSeg; i--)
                 {
                  array[i] = array[i - 1];
                 }
 
-                array[novaPosi] = pE;
+                array[posSeg] = pE;
                 aux++;
                 Console.WriteLine("\n(Dados alterados com sucesso)\n");
                 }
